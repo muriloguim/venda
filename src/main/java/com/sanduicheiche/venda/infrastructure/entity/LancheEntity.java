@@ -18,9 +18,9 @@ public class LancheEntity {
 
     @Id
     private String id;
-    private String nomeLanche;
-    private String valorLanche;
-    private List<String> item;
+    private String nome;
+    private String valor;
+    //private List<String> item;
 
     
 }
