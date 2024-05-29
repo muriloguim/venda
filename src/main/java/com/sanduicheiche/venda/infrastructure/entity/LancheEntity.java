@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 
-@Document(collection = "lanche_entity")
+@Document(collection = "lanche")
 @Getter
 @Setter
 @NoArgsConstructor
