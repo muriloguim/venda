@@ -11,6 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.List;
+
+
 import static org.springframework.util.Assert.notNull;
 
 @Service
@@ -35,6 +39,14 @@ public class LancheService {
         }
     }
 
+
+    public Collection<LancheEntity> listAll(){
+        try {
+           return lancheRepository.findAll();
+        } catch (Exception e) {
+            throw new BusinessException("Erro ao listar lanches", e);
+        }
+    }
 
     // public LancheResponseDTO buscaDadosUsuario(String email) {
     //     try {

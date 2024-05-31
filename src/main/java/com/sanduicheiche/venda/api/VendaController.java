@@ -4,7 +4,13 @@ package com.sanduicheiche.venda.api;
 import com.sanduicheiche.venda.api.request.LancheRequestDTO;
 import com.sanduicheiche.venda.api.response.LancheResponseDTO;
 import com.sanduicheiche.venda.business.LancheService;
+import com.sanduicheiche.venda.infrastructure.entity.LancheEntity;
+
 import lombok.RequiredArgsConstructor;
+
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/lanche")
 @RequiredArgsConstructor
-public class LancheController {
+public class VendaController {
 
     private final LancheService lancheService;
 
@@ -21,17 +27,10 @@ public class LancheController {
         return ResponseEntity.ok(lancheService.gravarLanche(lancheRequestDTO));
     }
 
-
-    // @GetMapping()
-    // public ResponseEntity<LancheResponseDTO> buscaUsuarioPorEmail(@RequestParam ("email") String email) {
-    //     return ResponseEntity.ok(usuarioService.buscaDadosUsuario(email));
-    // }
-
-    // @DeleteMapping
-    // public ResponseEntity<Void> deletaDadosUsuario(@RequestParam ("email") String email) {
-    //     usuarioService.deletaDadosUsuario(email);
-    //     return ResponseEntity.accepted().build();
-    // }
-
+    @GetMapping()
+    public @ResponseBody Collection<LancheEntity> buscaTodosLanches() {
+        return lancheService.listAll();
+    }
+    
 
 }
